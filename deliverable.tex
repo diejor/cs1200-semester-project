@@ -1,18 +1,24 @@
 \documentclass[12pt]{article}
-\usepackage{fancyhdr}
 
 \newcommand\groupname{\textit{Cometical}}
+\newcommand\groupnumber{\textit{24}}
 \newcommand\projectname{\textit{Assignment and Study Tracker\ }}
+\newcommand\classname{\textit{CS 1200.005}}
+\newcommand\assignment{\textit{Deliverable 2}}
 
-% Place fancyhrd with the name of the submission
-\fancypagestyle{plain}{}
+% Place header for first page
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{} % plain for first page
 \fancyhf{}
-\fancyhead[L]{Deliverable 1}
-\fancyhead[R]{CS 1200.005}
+\fancyhead[L]{\assignment}
+\fancyhead[R]{\classname}
 
+% Title 
 \title{\groupname
-\\ \small{group} \# 24}
+\\ \small{group} \# \groupnumber}
 \date{\today}
+
+% Group members
 \author{
     \textbf{Diego R.R.} \\
     \texttt{dar220007@utdallas.edu} \\
@@ -29,6 +35,10 @@
     \textbf{Rishabh Sabnavis} \\
     \texttt{rds230002@utdallas.edu}
 }
+
+\pagestyle{fancy}
+\lhead{\assignment}
+\rhead{\classname}
 
 \begin{document}
 \maketitle
