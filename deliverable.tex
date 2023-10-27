@@ -43,18 +43,44 @@
 
 % Setting header for subsequent pages
 \pagestyle{fancy}
-\lhead{\assignment}
-\rhead{\classname}
+\fancyhead[L]{\assignment}
+\fancyhead[R]{\classname}
 
 % ~~~~~~~~~~~ END OF PREAMBLE ~~~~~~~~~~~
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % ~~~~~~~~~~~~ START OF DOCUMENT ~~~~~~~~
 \begin{document}
 \maketitle % insert titlepage
 
-\section{Project Idea} 
-    We choose \projectname idea for the project.
+\section{Project Description} 
+    We have selected the \projectname idea for our project. This app is envisioned as an integrative solution, tailored for students who are juggling multiple responsibilities and deadlines.
+
+\subsection{Purpose and Integration with eLearning}
+    The primary aim of this app is to provide a holistic approach to assignment and study management, working alongisde eLearning to introduce a customizable \projectname. By communicating with eLearning systems, our app seeks to work with various data points like assignment due dates, quiz schedules, test timings, and even potential event dates. This data, combined with our app's features, will lead to the generation of a customizable scheduling planner. The goal is to offer a platform that doesn't just remind students of their obligations but actively aids in time optimization based on these commitments.
+
+\subsection{Customization} 
+    One of the defining features of our app will be its ability to personalize the experience. We recognize that every student has their unique study habits, patterns, and preferences. While the student will provide details, such as when due dates of quizzes, assignments, tests, and even events to participate the app will suggest an intelligent scheduler that might look reasonable to the student to actually accomplish. This scheduler, using hollistic algorithms and past user interactions, will try to create a study plan tailored to the student's needs, helping them manage their time efficiently.
+
+\subsection{Use cases}
+    Imagine Joel, a Computer Science student, navigating his Software Engineering group project. With the app's help, he effortlessly inputs his project's divided tasks and gets prompted to allocate slots for collaborative group meetings. The tracker even optimizes these based on his past study patterns, ensuring he remains at his most productive. In parallel, Sofia, a master's student in Computer Science, relies on the app to make sense of her regular assignments with an intensive research project. The tracker keeps her updated on research milestones and assists in dedicating post-research revision slots, ensuring she remains on top of both her academic and research commitments.
+
+
+\section{Requirements for \projectname}
+    \begin{enumerate}
+        \item \textbf{Data Integration with eLearning Systems}: Ability to sync and retrieve information like assignment due dates, quiz schedules, test timings, and potential event dates.
+        \item \textbf{Manual Data Entry}: Provide the option for students to manually input tasks or events not present in eLearning, such as group projects or external workshops.
+        \item \textbf{Personalized Study Scheduling}: Generate time slot recommendations based on historical data and known student schedules, and adjust plans based on any last-minute changes or missed slots.
+        \item \textbf{Study Habit Analysis}: Analyze and provide insights on the student's past study patterns, such as peak productivity periods.
+        \item \textbf{Proactive Reminders}: Send notifications for upcoming tasks, commitments, and eLearning assignments or tests, with the option to set individual reminder timings.
+        \item \textbf{Customizable Alert Preferences}: Allow students to customize their alert timings, and provide options to snooze or dismiss reminders.
+        \item \textbf{Group Task Management}: Enable the creation, assignment, and sharing of tasks within study groups.
+        \item \textbf{Event/Study Group Creation}: Provide tools to organize study sessions or review groups, and send invites to peers.
+        \item \textbf{Personal Profile Settings}: Allow students to input their personal study preferences and adjust their scheduler's flexibility.
+        \item \textbf{Theme and Appearance Customization}: Offer various app themes or layouts, and a choice between dark/light mode based on user preference.
+        \item \textbf{Performance Analytics}: Enable visualization of study hours over time, track achievements, and review uncompleted or missed tasks.
+    \end{enumerate}
 
 \end{document}
