@@ -1,5 +1,9 @@
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~ START OF PREAMBLE ~~~~~~~~~~~~~~
+
 \documentclass[12pt]{article}
 
+% commands that will be "variables" for the rest of the document
 \newcommand\groupname{\textit{Cometical}}
 \newcommand\groupnumber{\textit{24}}
 \newcommand\projectname{\textit{Assignment and Study Tracker\ }}
@@ -16,9 +20,8 @@
 % Title 
 \title{\groupname
 \\ \small{group} \# \groupnumber}
-\date{\today}
 
-% Group members
+% Group members, this is part of the title page
 \author{
     \textbf{Diego R.R.} \\
     \texttt{dar220007@utdallas.edu} \\
@@ -36,14 +39,22 @@
     \texttt{rds230002@utdallas.edu}
 }
 
+\date{\today} % automatically generate date, part of title
+
+% Setting header for subsequent pages
 \pagestyle{fancy}
 \lhead{\assignment}
 \rhead{\classname}
 
-\begin{document}
-\maketitle
+% ~~~~~~~~~~~ END OF PREAMBLE ~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\section{Project Idea}
-We choose \projectname idea for the project.
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~ START OF DOCUMENT ~~~~~~~~
+\begin{document}
+\maketitle % insert titlepage
+
+\section{Project Idea} 
+    We choose \projectname idea for the project.
 
 \end{document}
