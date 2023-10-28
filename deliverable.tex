@@ -2,6 +2,7 @@
 % ~~~~~~~~~~~~~~ START OF PREAMBLE ~~~~~~~~~~~~~~
 
 \documentclass[12pt]{article}
+\usepackage{parskip} % for spacing between paragraphs and eliminating indentation at start of paragraph
 
 % commands that will be "variables" for the rest of the document
 \newcommand\groupname{\textit{Cometical}}
@@ -66,7 +67,9 @@
     One of the defining features of our app will be its ability to personalize the experience. We recognize that every student has their unique study habits, patterns, and preferences. While the student will provide details, such as when due dates of quizzes, assignments, tests, and even events to participate the app will suggest an intelligent scheduler that might look reasonable to the student to actually accomplish. This scheduler, using hollistic algorithms and past user interactions, will try to create a study plan tailored to the student's needs, helping them manage their time efficiently.
 
 \subsection{Use cases}
-    Imagine Joel, a Computer Science student, navigating his Software Engineering group project. With the app's help, he effortlessly inputs his project's divided tasks and gets prompted to allocate slots for collaborative group meetings. The tracker even optimizes these based on his past study patterns, ensuring he remains at his most productive. In parallel, Sofia, a master's student in Computer Science, relies on the app to make sense of her regular assignments with an intensive research project. The tracker keeps her updated on research milestones and assists in dedicating post-research revision slots, ensuring she remains on top of both her academic and research commitments.
+    Imagine Joel, a Computer Science student, navigating his Software Engineering group project. With the app's help, he effortlessly inputs his project's divided tasks and gets prompted to allocate slots for collaborative group meetings. The tracker even optimizes these based on his past study patterns, ensuring he remains at his most productive. 
+
+    In parallel, Sofia, a master's student in Computer Science, relies on the app to make sense of her regular assignments with an intensive research project. The tracker keeps her updated on research milestones and assists in dedicating post-research revision slots, ensuring she remains on top of both her academic and research commitments.
 % end of project description
 
 % start of requirements section
@@ -86,10 +89,16 @@
     \end{enumerate}
 % end of requirements section
 
+% start of potential problems section
 \section{Potential Problems}
-TODO
+    A standout concern with the Assignment and Study Tracker app is the user privacy and ensuring data security. The app's fundamental operation involves interpreting student data with study preferences ranging from academic to personal patterns. This comprehensive collection of data, while necessary for the app's effective functionality, runs the risk of becoming a vulnerability of sensitive information. Students are particularly sensitive about their academic data, and the fact that the app will have access to their academic performance, schedules, and possibly group interactions, magnifies the security potential problems. Moreover, as the app aims for deep integration with platforms like eLearning, the user data will potentially travel through unsafe networks.
+
+
+     Morally wise, any breach or misuse could irreparably damage the trust of the user base and raise ethical concerns. The app's potential ability to capture specific patterns or insights about a student's habits could inadvertently lead to profiling or categorizing with negative connotations.
+
+     To address this, the app should offer clear, concise, and easily accessible privacy policies, ensuring students are informed about the kind of data being collected, its use, storage policies, and the measures in place to protect it. Additionally, offering users control over what they share, and easy opt-out options, can help them and assuage concerns about potential overreach or violations of their personal boundaries.
+% end of potential problems section
 
 \section{Subsystems}
-TODO
 
 \end{document}
