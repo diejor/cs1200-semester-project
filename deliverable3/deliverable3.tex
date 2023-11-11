@@ -1,0 +1,71 @@
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~ START OF PREAMBLE ~~~~~~~~~~~~~~
+
+\documentclass[12pt]{article}
+\usepackage{parskip} % for spacing between paragraphs and eliminating indentation at start of paragraph
+
+% commands that will be "variables" for the rest of the document
+\newcommand\groupname{\textit{Cometical}}
+\newcommand\groupnumber{\textit{24}}
+\newcommand\projectname{\textit{Assignment and Study Tracker\ }}
+\newcommand\classname{\textit{CS 1200.005}}
+\newcommand\assignment{\textit{Deliverable 3}}
+
+% Place header for first page
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{} % plain for first page
+\fancyhf{}
+\fancyhead[L]{\assignment}
+\fancyhead[R]{\classname}
+
+% Title 
+\title{
+    \textbf{Diego R.R.} \\
+    \groupname \\
+    \small{group} \# \groupnumber \\
+    \vspace{1em}
+}
+
+% Group members, this is part of the title page
+\author{
+    \textbf{Diego R.R.} \\
+    \texttt{dar220007@utdallas.edu} \\
+    \and 
+    \textbf{Gael Romero} \\
+    \texttt{jgr230000@utdallas.edu} \\
+    \and
+    \textbf{Emily Rouse} \\
+    \texttt{zxr220003@utdallas.edu} \\
+    \and
+    \textbf{Alan Roybal: \underline{leader}} \\
+    \texttt{aer220004@utdallas.edu} \\
+    \and
+    \textbf{Rishabh Sabnavis} \\
+    \texttt{rds230002@utdallas.edu}
+}
+
+\date{\today} % automatically generate date, part of title
+
+% Setting header for subsequent pages
+\pagestyle{fancy}
+\fancyhead[L]{\assignment}
+\fancyhead[R]{\classname}
+
+% ~~~~~~~~~~~ END OF PREAMBLE ~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~ START OF DOCUMENT ~~~~~~~~
+\begin{document}
+\maketitle % insert titlepage
+
+% start of project description section
+\section{Project Idea} 
+    We have selected the \projectname idea for our project. This app is envisioned as an integrative solution, tailored for students who are juggling multiple responsibilities and deadlines.
+% end of project description
+
+\section{Scheduling and Planning Sybsytem}
+    Central to the app's value proposition, this subsystem employs machine intelligence techniques and historical user interaction data to generate personalized study and assignment schedules. It optimizes study time, integrates breaks, and aims to adapt to the user's most productive timeframes and personal preferences.
+
+\end{document}

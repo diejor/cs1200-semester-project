@@ -1,5 +1,7 @@
 *
 
+!deliverable*/
+
 !.gitignore
-!deliverable.pdf
-!deliverable.tex
+!deliverable*.pdf
+!deliverable*.tex
