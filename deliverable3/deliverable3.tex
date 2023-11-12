@@ -3,11 +3,12 @@
 
 \documentclass[12pt]{article}
 \usepackage{parskip} % for spacing between paragraphs and eliminating indentation at start of paragraph
+\usepackage{tikz-uml}
 
 % commands that will be "variables" for the rest of the document
 \newcommand\groupname{\textit{Cometical}}
 \newcommand\groupnumber{\textit{24}}
-\newcommand\projectname{\textit{Assignment and Study Tracker\ }}
+\newcommand\app{\textit{Assignment and Study Tracker} app}
 \newcommand\classname{\textit{CS 1200.005}}
 \newcommand\assignment{\textit{Deliverable 3}}
 
@@ -23,7 +24,6 @@
     \textbf{Diego R.R.} \\
     \groupname \\
     \small{group} \# \groupnumber \\
-    \vspace{1em}
 }
 
 % Group members, this is part of the title page
@@ -62,10 +62,77 @@
 
 % start of project description section
 \section{Project Idea} 
-    We have selected the \projectname idea for our project. This app is envisioned as an integrative solution, tailored for students who are juggling multiple responsibilities and deadlines.
+    We have selected the \app idea for our project. This app is envisioned as an integrative solution, tailored for students who are juggling multiple responsibilities and deadlines.
 % end of project description
 
-\section{Scheduling and Planning Sybsytem}
-    Central to the app's value proposition, this subsystem employs machine intelligence techniques and historical user interaction data to generate personalized study and assignment schedules. It optimizes study time, integrates breaks, and aims to adapt to the user's most productive timeframes and personal preferences.
+\section{Scheduling and Planning Subsytem}
+    The Scheduling and Planning subsystem is a core component of the \app, designed to provide a comprehensive solution for managing academic responsibilities. Its primary function is to integrate seamlessly with eLearning platforms, harnessing a variety of data points such as assignment due dates, quiz schedules, test timings, and extracurricular event dates. This integration allows for the creation of a dynamic, customizable scheduling planner that goes beyond mere reminders, actively assisting students in optimizing their time based on their academic and personal commitments.
+
+\newcommand\scheduler{\textit{Scheduler\ }}
+    In the \app, the Scheduling and Planning subsystem is integrated with other subsystems, adhering to the Input, Process, Output design paradigm. The 'Input' phase, led by the Data Retrieval and Analysis Function, works closely with the Data Integration and Synchronization subsystem to ensure accurate data collection from eLearning platforms needed for the \scheduler. The 'Process' phase is named \scheduler and is split into 'Initialization' and 'Procedural Analysis'. Finally, the 'Output' phase is encompassed by the User Interaction and Interface Function. This cohesive structure ensures that each subsystem not only performs its specific role but also collaboratively contributes to a harmonious and effective overall system.
+
+    \subsection*{Data Retrieval and Analysis Function}
+\begin{itemize}
+    \item \textbf{Purpose:} To fetch and analyze data from eLearning platforms and user inputs.
+    \item \textbf{Process:}
+    \begin{itemize}
+        \item Connects with the eLearning system to access academic schedules and deadlines.
+        \item Retrieves historical user data to understand individual study patterns.
+    \end{itemize}
+    \item \textbf{Data Requirements:} Academic schedules (string), historical user data (string, time stamps).
+    \item \textbf{Output:} Processed data which includes organized schedules and historical patterns.
+\end{itemize}
+
+\subsection*{Personalized Scheduler Function}
+\begin{itemize}
+    \item \textbf{Purpose:} To generate and adapt personalized study and assignment schedules.
+    \item \textbf{Process:}
+    \begin{itemize}
+        \item Utilizes machine learning algorithms to create tailored study plans.
+        \item Factors in user's academic schedule, preferred study times, and past productivity trends.
+    \end{itemize}
+    \item \textbf{Data Requirements:} User's academic schedule (string, date), preferred study times (time), productivity data (time, frequency).
+    \item \textbf{Output:} A custom study schedule that aligns with the user’s academic and personal preferences.
+\end{itemize}
+
+\subsection*{Dynamic Scheduler Adjustment Function}
+\begin{itemize}
+    \item \textbf{Purpose:} To dynamically adjust schedules based on new data or user feedback.
+    \item \textbf{Process:}
+    \begin{itemize}
+        \item Monitors real-time changes in the user's schedule or academic calendar.
+        \item Adjusts the study plan to accommodate new events or changes.
+    \end{itemize}
+    \item \textbf{Data Requirements:} Real-time schedule updates (string, date, time), user feedback (string, boolean).
+    \item \textbf{Output:} An updated study schedule reflecting the latest changes and user preferences.
+\end{itemize}
+
+\subsection*{User Interaction and Interface Function}
+\begin{itemize}
+    \item \textbf{Purpose:} To provide an interactive and user-friendly interface for schedule management.
+    \item \textbf{Process:}
+    \begin{itemize}
+        \item Offers a visual representation of the schedule with customizable options.
+        \item Allows for direct user input and modifications to the schedule.
+    \end{itemize}
+    \item \textbf{Data Requirements:} User input data (string, date, time), current schedule display (graphical).
+    \item \textbf{Output:} A user interface that displays the current schedule and allows for easy modifications.
+\end{itemize}
+
+\begin{tikzpicture}
+
+  % Define styles if not already defined (assuming they are in the preamble)
+  \tikzstyle{startstop} = [circle, draw, text centered, minimum width=1cm, minimum height=1cm]
+  \tikzstyle{block} = [rectangle, draw, text width=5em, text centered, rounded corners, minimum height=4em]
+  \tikzstyle{line} = [draw, -latex']
+
+  % Place nodes
+  \node [startstop] (start) {Start}; % Add some text here or use \phantom{Start} to make it invisible
+  \node [block, below=of start] (lookup) {Look For Coffee};
+
+  % Draw edges
+  \path [line] (start) -- (lookup);
+
+\end{tikzpicture}
 
 \end{document}
