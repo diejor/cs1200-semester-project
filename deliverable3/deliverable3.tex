@@ -5,7 +5,12 @@
 \usepackage{parskip} % for spacing between paragraphs and eliminating indentation at start of paragraph
 
 \usepackage{tikz-uml}
-\usetikzlibrary{positioning}
+\usetikzlibrary{
+    positioning,
+    shapes.geometric,
+    arrows,
+    arrows.meta,
+    }
 \usepackage{xspace}
 \usepackage{xcolor}
 \usepackage{algpseudocodex} % Load the algpseudocodex package
@@ -101,6 +106,7 @@ To provide a more comprehensive explanation of why the Scheduling and Planning S
 \subsection{Pseudocode}
 
 \subsubsection{Data Retrieval Function}
+Retrieving the ELearningAPI is handled by the \dataSubsystem. The \subsystem only needs to call the \dataSubsystem to retrieve the ELearningAPI. The ELearningAPI is then used to retrieve the calendar and preferences for the user, later used by the hollistic algorithm.
 \begin{algorithmic}[1] % The [1] option enables line numbering
 \Function{RetrieveDataForScheduling}{$user$}
     \State $eLearn \gets \textbf{new} ELearningAPI$
@@ -116,6 +122,7 @@ To provide a more comprehensive explanation of why the Scheduling and Planning S
 \end{algorithmic}
 
 \subsubsection{Personalized Scheduler Function}
+This function received the data from the \dataSubsystem and generates a personalized schedule for the user. The initialization of the scheduler consist of algorithm that checks multiple conflicts such as privacy hints and personal preferences.
 \begin{algorithmic}[1] % The [1] option enables line numbering
 \Function{PersonalizedScheduler}{$user$}
     \State $schedule \gets$ \Call{retrieveDataForScheduling}{$user$}
@@ -161,6 +168,7 @@ To provide a more comprehensive explanation of why the Scheduling and Planning S
 \end{algorithmic}
 
 \subsubsection{Dynamic Scheduler Adjustment Function}
+Machine intelligence used for this function was simplified to a hollistic algorithm. Take into account that this is the most independent function from other subsystems and it assumes that the Personalized Scheduler Function initialized the hints correctly.
 \begin{algorithmic}[1] % The [1] option enables line numbering
 \Function{DynamicScheduler}{$user$, $schedule$, $ELearnAPI$}
     \State $userData \gets$ $ELearnAPI$.getData($user$)
@@ -198,10 +206,96 @@ To provide a more comprehensive explanation of why the Scheduling and Planning S
 Since the \subsystem is a backend component, it does not have a user interface. However, it does interact with the \userSubsystem and \securitySubsystem to ensure that the user has a customizable experience and that their privacy is protected.
 
 \newpage
+\subsection{UML Activity Diagram}
+
+\begin{tikzpicture}[node distance=1cm, scale=0.8]
+
+% Define style for boxes
+
+\tikzstyle{start} = [circle, minimum size=0.8cm, draw=black, fill=black!70]
+
+\tikzstyle{endouter} = [circle, minimum size=0.8cm, draw=black, fill=black!20]
+\tikzstyle{endinner} = [circle, minimum size=0.6cm, yshift=-0.1cm, draw=black, fill=black!80]
+
+\tikzstyle{box} = [rectangle, rounded corners=5pt, minimum width=3cm, minimum height=0.7cm, text centered, draw=black, fill=orange!10]
+
+% Define style for arrow
+\tikzstyle{arrow} = [thick, -Triangle, line width=0.5mm]
+
+% Define style for fork operation
+\tikzstyle{forkstyle} = [rectangle, minimum width=2cm, minimum height=0.2cm, inner sep=0, draw=black, fill=black!50]
+
+
+% Nodes
+
+% Data Retrieval
+\node (start) [start] {};
+\node (step1) [below=of start, box] {\textbf{Data Retrieval}};
+\node (fork) [below of=step1, forkstyle] {};
+\node (step21) [below left=of fork, box] {ELearningAPI};
+\node (step31) [below left=of step21, box] {Retrieve Calendar};
+\node (step22) [below right=of fork, box] {Retrieve User Data};
+\node (fork1) [below right=of step31, forkstyle] {};
+% End Data Retrieval
+
+% Personalized scheduler
+\node (step41) [below=of fork1, box] {\textbf{Personalized Scheduler}};
+\node (step42) [right=of step41, box] {Is Conflictive?};
+\node (step51) [below=of step42, box] {Resolve with user};
+\node (step52) [left=of step51, box] {Apply Preferences};
+% End Personalized scheduler
+
+% Dynamic Scheduler
+\node (step61) [below=of step52, box] {\textbf{Dynamic Scheduler}};
+\node (fork2) [below=of step61, forkstyle] {};
+\node (step71) [below left=of fork2, box] {Hollistic Algorithm};
+\node (step72) [below right=of fork2, box] {Optimize Schedule};
+\node (fork2end) [below right=of step71, forkstyle] {};
+
+% End Dynamic scheduler
+
+% Start of visual Output
+\node (step81) [below=of fork2end, box] {\textbf{Visual Output}};
+\node (endo) [below=of step81, endouter] {};
+\node (endi) [below=of step81, endinner] {};
+
+% Lines
+% Data Retrieval
+\draw [arrow] (start) -- (step1);
+\draw [arrow] (step1) -- (fork);
+\draw [arrow] (fork) -- (step21);
+\draw [arrow] (step21) -- (step31);
+\draw [arrow] (fork) -- (step22);
+
+\draw [arrow] (step31) -- (fork1);
+\draw [arrow] (step22) -- (fork1);
+% End Data Retrieval
+
+% Personalized Scheduler
+\draw [arrow] (fork1) -- (step41);
+\draw [arrow] (step41) -- (step42);
+\draw [arrow] (step42) -- (step51) node[midway, above] {Yes};
+\draw [arrow] (step42) -- (step52) node[midway, above] {No};
+\draw [arrow] (step51) -- (step52);
+% End Personalized Scheduler
+
+% Dynamic scheduler
+\draw [arrow] (step52) -- (step61);
+\draw [arrow] (step61) -- (fork2);
+\draw [arrow] (fork2) -- (step71);
+\draw [arrow] (fork2) -- (step72);
+\draw [arrow] (step71) -- (fork2end);
+\draw [arrow] (step72) -- (fork2end);
+\draw [arrow] (fork2end) -- (step81);
+% End Dynamic Scheduler
+
+\draw [arrow] (step81) -- (endo);
+\end{tikzpicture}
+
+
 \subsection{Data Used}
 The \subsystem uses data that is easily identified by how classes interact between each other. Thus, the following UML class chart will help understand the data needed for this subsystem:
 \\
-
 \begin{tikzpicture}
     \tikzumlset{fill package=white}
     \tikzumlset{fill class=white}
